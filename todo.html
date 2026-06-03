@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>作業 Deadline 管理</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAADfUlEQVRYhcWXW2wUVRjHf2d2mF52V9yuotLdlori2hSJL/jirVEQl9gHRJOGqIkSHhQ1JjxIjInxyQdfRB+8oCEaXjCtJCYs2kRKWiQbJSSIbVe0K1AKCHvB3Z3LdnePD9PWUnZgt93SXzLJnPnOnP9/vvPNOTOCGTz3TF9LqVh4E8TTIFcADdSGHJKYUOS+hgnXJ9/8+FRuKiCmTjaHD26VyI+B+hqJOiDPgHy258DGX6cNTIp/sbDCMxBkKclHeyLh42Iy7TEW/Mmv4S+vXt+h2HN+08UBVmYazW2KXXCLRrcCsnXR5AUdCtC4aAYkHmXRxCdRnQKNbpUdOx/Ee8sS8laRTGZiTgKX/jHZs3uYYkFWZ6DjAT/tq5vshpQUHAaohIH+cf4YSZeNOU6ByyX+bwjh1K0irhprFo4ZcOJULI1pFm/Yz++vY3nAc8N+cyjCCrNRYdaqzkBrm8exHlRVQdOqe6aqDQwePo9pFMrGFEXw5IYgqlq5iaoNPPzYXY4ZGB9PcWTgFABtd99GS6u/9gZOxzPXFOHFi2m++zZKa5uPlfcsAyB6dJTLl7K8/tYTtTUwuwiTiSy9+47y/gddBII+hn5LArDlpbWMnU3x3jvf47vVebup+i24976lrF7jnz6ODJ7k7Xc3EAj6AND1LLqeBSAQ9LFj53ri8XjtDMykWCyRuJxlVeiO6WuGYWEY1nQ7dP+d+JpUoHzdzMvAv1cMbl/m5VDfOUaGUgBE+4f55eAxAEaGUhzqO0dzYCmlUvnFa14GtLolmMYEneuaCbXbU9D9yiN0rWkks38/oXYfneua0fU8QpSXcizCZMLETpsAWT59brdGMqljWQXq6uyhmoM+6O6imEgAYFkF/owlUUSwOgOx4TS7PjxBoMVDLjeBniu/+Hg9TXz52SCvvvE4AH/HMwCsaLPXgN2fDmBZHhocvjpVIAe4ywV/Hrjg5G8GCidPjJJO6Wx58SE0zVY6HU+w9+soh3+6gNez3OlmXWwKR6IC1lagdF3y+SyGmUJVCyCgmHdR39CEpl1nRxT8rgrYSw0MaJrnarFKfupKRBSvXv85MDpfA3PAkMiPlD39nSZSbkaQvanyUm7vjYTHFICeSPg4stRp/zguOIZAvNwTCX8Fs3aWF9b/4M655GtCyOeBEA5vx1xEEYwiOSCl3NUbCY9NBf4DbP45pjlj6cUAAAAASUVORK5CYII=" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f7f6f3; --surface: #ffffff; --surface2: #f1efe8;
+    --border: rgba(0,0,0,0.1); --border2: rgba(0,0,0,0.18);
+    --text: #1a1a18; --text2: #6b6a65; --text3: #9e9d98;
+    --purple: #534AB7; --purple-bg: #EEEDFE; --purple-text: #3C3489;
+    --teal-bg: #E1F5EE; --teal-text: #0F6E56;
+    --coral-bg: #FAECE7; --coral-text: #993C1D;
+    --blue-bg: #E6F1FB; --blue-text: #185FA5;
+    --amber-bg: #FAEEDA; --amber-text: #854F0B;
+    --pink-bg: #FBEAF0; --pink-text: #993556;
+    --green-bg2: #D6EDCC; --green-text2: #2A5E0A;
+    --red: #A32D2D; --red-bg: #FCEBEB; --red-light: #F7C1C1;
+    --orange-bg: #FAEEDA; --orange-text: #854F0B;
+    --green-bg: #EAF3DE; --green-text: #3B6D11;
+    --gray-bg: #F1EFE8; --gray-text: #5F5E5A;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a18; --surface: #252522; --surface2: #2e2e2b;
+      --border: rgba(255,255,255,0.09); --border2: rgba(255,255,255,0.16);
+      --text: #f0ede6; --text2: #9e9d98; --text3: #6b6a65;
+      --purple-bg: #26215C; --purple-text: #AFA9EC;
+      --teal-bg: #04342C; --teal-text: #5DCAA5;
+      --coral-bg: #4A1B0C; --coral-text: #F0997B;
+      --blue-bg: #042C53; --blue-text: #85B7EB;
+      --amber-bg: #412402; --amber-text: #FAC775;
+      --pink-bg: #4B1528; --pink-text: #ED93B1;
+      --green-bg2: #0D3206; --green-text2: #7EC85A;
+      --red-bg: #501313; --red-light: #791F1F;
+      --orange-bg: #412402; --orange-text: #FAC775;
+      --green-bg: #173404; --green-text: #97C459;
+      --gray-bg: #2C2C2A; --gray-text: #B4B2A9;
+    }
+  }
+  body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
+  .date-label { font-size: 13px; color: var(--text2); margin-bottom: 1.5rem; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.5rem; }
+  .stat { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px 12px; }
+  .stat-num { font-size: 24px; font-weight: 600; }
+  .stat-lbl { font-size: 12px; color: var(--text2); margin-top: 1px; }
+  .form-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .form-row-3 { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; }
+  .field { display: flex; flex-direction: column; gap: 4px; position: relative; }
+  .field label { font-size: 12px; color: var(--text2); }
+  input { height: 36px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); padding: 0 10px; font-size: 14px; background: var(--surface2); color: var(--text); width: 100%; font-family: inherit; outline: none; }
+  input:focus { border-color: var(--purple); box-shadow: 0 0 0 2px rgba(83,74,183,0.15); }
+  .btn { height: 36px; padding: 0 16px; background: var(--purple); color: white; border: none; border-radius: var(--radius-sm); font-size: 14px; cursor: pointer; white-space: nowrap; font-family: inherit; font-weight: 500; }
+  .btn:hover { background: #3C3489; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .views { display: flex; gap: 4px; margin-bottom: 1rem; }
+  .view-btn { padding: 6px 14px; font-size: 13px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); background: transparent; color: var(--text2); cursor: pointer; font-family: inherit; }
+  .view-btn.active { background: var(--surface2); color: var(--text); border-color: var(--border2); }
+  .task-list { display: flex; flex-direction: column; gap: 8px; }
+  .task-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 12px 16px; display: flex; align-items: center; gap: 12px; transition: border-color 0.15s; }
+  .task-card:hover { border-color: var(--border2); }
+  .task-card.done-card { opacity: 0.5; }
+  .check-btn { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border2); background: transparent; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-size: 12px; color: white; }
+  .check-btn.checked { background: var(--purple); border-color: var(--purple); }
+  .task-main { flex: 1; min-width: 0; }
+  .task-name { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .task-name.strikethrough { text-decoration: line-through; color: var(--text2); }
+  .task-meta { font-size: 12px; color: var(--text2); margin-top: 3px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 100px; font-weight: 500; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 100px; font-weight: 500; }
+  .badge-overdue { background: var(--red-light); color: var(--red); }
+  .badge-urgent  { background: var(--red-bg);    color: var(--red); }
+  .badge-soon    { background: var(--orange-bg); color: var(--orange-text); }
+  .badge-ok      { background: var(--green-bg);  color: var(--green-text); }
+  .badge-done    { background: var(--gray-bg);   color: var(--gray-text); }
+  .progress-bar { width: 60px; height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+  .del-btn { background: transparent; border: none; cursor: pointer; color: var(--text3); padding: 4px 6px; border-radius: var(--radius-sm); opacity: 0; font-size: 16px; line-height: 1; transition: opacity 0.15s; }
+  .task-card:hover .del-btn { opacity: 1; }
+  .del-btn:hover { color: var(--red); }
+  .tl-group { margin-bottom: 1.5rem; }
+  .tl-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; padding-left: 2px; }
+  .empty { text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 14px; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); font-size: 13px; padding: 8px 16px; border-radius: var(--radius-sm); opacity: 0; transition: opacity 0.2s; pointer-events: none; white-space: nowrap; z-index: 999; }
+  .toast.show { opacity: 1; }
+  .loading { text-align: center; padding: 2rem; color: var(--text3); font-size: 14px; }
+  /* autocomplete dropdown */
+  .suggestions { position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border: 0.5px solid var(--border2); border-radius: var(--radius-sm); z-index: 100; box-shadow: 0 4px 16px rgba(0,0,0,0.12); margin-top: 2px; overflow: hidden; }
+  .suggestion-item { padding: 8px 12px; font-size: 13px; cursor: pointer; color: var(--text); display: flex; align-items: center; gap: 8px; }
+  .suggestion-item:hover, .suggestion-item.active { background: var(--surface2); }
+</style>
+</head>
+<body>
+<div id="login-screen" style="display:none;position:fixed;inset:0;background:var(--bg);z-index:999;align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);padding:2rem;width:100%;max-width:380px;margin:1rem;">
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div style="font-size:36px;margin-bottom:8px;">📚</div>
+      <div style="font-size:18px;font-weight:600;color:var(--text);">作業 Deadline 管理</div>
+      <div style="font-size:13px;color:var(--text2);margin-top:4px;">輸入你的 ID 來存取你的任務</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <input type="text" id="id-input" placeholder="貼上你的 ID" style="height:40px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);padding:0 12px;font-size:14px;background:var(--surface2);color:var(--text);font-family:monospace;outline:none;" onkeydown="if(event.key==='Enter')confirmId()" />
+      <div id="id-hint" style="font-size:12px;color:var(--text3);min-height:16px;"></div>
+      <button onclick="confirmId()" style="height:40px;background:var(--purple);color:white;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;">進入</button>
+      <div style="text-align:center;margin-top:4px;">
+        <button onclick="generateId()" style="background:none;border:none;color:var(--purple);font-size:13px;cursor:pointer;font-family:inherit;text-decoration:underline;">沒有 ID？點我產生新 ID</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-app">
+<div class="container">
+  <h1>📚 作業 Deadline 管理</h1>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem;">
+    <div class="date-label" id="date-label"></div>
+    <div style="display:flex;gap:6px;">
+    <button onclick="showMyId()" style="background:none;border:0.5px solid var(--border2);border-radius:var(--radius-sm);padding:4px 10px;font-size:12px;color:var(--text2);cursor:pointer;font-family:inherit;">🔑 我的 ID</button>
+    <button onclick="switchUser()" style="background:none;border:0.5px solid var(--border2);border-radius:var(--radius-sm);padding:4px 10px;font-size:12px;color:var(--text2);cursor:pointer;font-family:inherit;">切換使用者</button>
+  </div>
+  </div>
+  <!-- ID modal -->
+  <div id="id-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;align-items:center;justify-content:center;">
+    <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);padding:1.5rem;width:100%;max-width:360px;margin:1rem;">
+      <div style="font-size:15px;font-weight:600;margin-bottom:8px;">🔑 我的 ID</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:10px;">把這組 ID 存起來，換裝置時輸入即可同步資料。</div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <input id="my-id-display" readonly style="flex:1;height:36px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);padding:0 10px;font-size:12px;font-family:monospace;background:var(--surface2);color:var(--text);outline:none;" />
+        <button onclick="copyMyId()" id="copy-btn" style="height:36px;padding:0 14px;background:var(--purple);color:white;border:none;border-radius:var(--radius-sm);font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap;">複製</button>
+      </div>
+      <button onclick="closeMyId()" style="margin-top:12px;width:100%;height:34px;background:none;border:0.5px solid var(--border2);border-radius:var(--radius-sm);font-size:13px;color:var(--text2);cursor:pointer;font-family:inherit;">關閉</button>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="s-total">—</div><div class="stat-lbl">全部任務</div></div>
+    <div class="stat"><div class="stat-num" id="s-urgent" style="color:var(--red)">—</div><div class="stat-lbl">急迫（≤3天）</div></div>
+    <div class="stat"><div class="stat-num" id="s-done" style="color:var(--green-text)">—</div><div class="stat-lbl">已完成</div></div>
+  </div>
+  <div class="form-card">
+    <div class="form-row" style="margin-bottom:8px">
+      <div class="field" style="grid-column:1/3">
+        <label>任務名稱</label>
+        <input type="text" id="inp-name" placeholder="例：微積分第三次作業" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>截止日期</label>
+        <input type="datetime-local" id="inp-date" />
+      </div>
+      <div class="field" id="subject-field">
+        <label>科目（可自由輸入）</label>
+        <input type="text" id="inp-subject" placeholder="例：線性代數" autocomplete="off"
+          oninput="onSubjectInput()" onfocus="onSubjectInput()" onblur="hideSuggestions()" onkeydown="onSubjectKey(event)" />
+        <div class="suggestions" id="suggestions" style="display:none"></div>
+      </div>
+    </div>
+    <div class="form-row-3">
+      <div class="field" style="grid-column:1/3">
+        <label>備註（可選）</label>
+        <input type="text" id="inp-note" placeholder="例：需要交 PDF" />
+      </div>
+      <button class="btn" id="add-btn" onclick="addTask()">＋ 新增</button>
+    </div>
+  </div>
+  <div class="views">
+    <button class="view-btn active" onclick="switchView('list',this)">清單</button>
+    <button class="view-btn" onclick="switchView('timeline',this)">時間軸</button>
+  </div>
+  <div id="view-list"><div class="loading">載入中...</div></div>
+  <div id="view-timeline" style="display:none"></div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const SUPABASE_URL='https://nnaiudljfhyuqosedamp.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5uYWl1ZGxqZmh5dXFvc2VkYW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5ODA3NTYsImV4cCI6MjA5NTU1Njc1Nn0.ew2F2LSfVNWWvLTPNlUUrXkBKiA9VC9WWVl2_mRaf0U';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+// Color palettes for tags — assigned by hashing subject name
+const PALETTES=[
+  {bg:'#EEEDFE',text:'#3C3489'},
+  {bg:'#E1F5EE',text:'#0F6E56'},
+  {bg:'#FAECE7',text:'#993C1D'},
+  {bg:'#E6F1FB',text:'#185FA5'},
+  {bg:'#FAEEDA',text:'#854F0B'},
+  {bg:'#FBEAF0',text:'#993556'},
+  {bg:'#D6EDCC',text:'#2A5E0A'},
+  {bg:'#FDE8F5',text:'#7A1A5B'},
+];
+const PALETTES_DARK=[
+  {bg:'#26215C',text:'#AFA9EC'},
+  {bg:'#04342C',text:'#5DCAA5'},
+  {bg:'#4A1B0C',text:'#F0997B'},
+  {bg:'#042C53',text:'#85B7EB'},
+  {bg:'#412402',text:'#FAC775'},
+  {bg:'#4B1528',text:'#ED93B1'},
+  {bg:'#0D3206',text:'#7EC85A'},
+  {bg:'#3D0A2A',text:'#E896CC'},
+];
+function isDark(){return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;}
+function paletteFor(subject){
+  let h=0;for(let i=0;i<subject.length;i++)h=(h*31+subject.charCodeAt(i))>>>0;
+  const pal=isDark()?PALETTES_DARK:PALETTES;
+  return pal[h%pal.length];
+}
+
+let tasks=[], currentView='list', suggestIdx=-1;
+
+// --- ID 管理 ---
+let USER_ID = localStorage.getItem('todo_user_id') || null;
+
+function showLoginScreen(){
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('main-app').style.display='none';
+}
+function hideLoginScreen(){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('main-app').style.display='block';
+}
+function generateId(){
+  const id = crypto.randomUUID();
+  document.getElementById('id-input').value = id;
+  document.getElementById('id-hint').textContent = '✓ 已產生新 ID，請務必記下來！';
+  document.getElementById('id-hint').style.color = '#3B6D11';
+}
+function confirmId(){
+  const val = document.getElementById('id-input').value.trim();
+  if(!val){ document.getElementById('id-hint').textContent='請輸入或產生一個 ID'; document.getElementById('id-hint').style.color='#A32D2D'; return; }
+  USER_ID = val;
+  localStorage.setItem('todo_user_id', val);
+  hideLoginScreen();
+  loadTasks();
+}
+
+function knownSubjects(){
+  const s=new Set(tasks.map(t=>t.tag).filter(Boolean));
+  return [...s].sort();
+}
+
+function onSubjectInput(){
+  const val=document.getElementById('inp-subject').value.trim().toLowerCase();
+  const all=knownSubjects();
+  const matches=val?all.filter(s=>s.toLowerCase().includes(val)&&s.toLowerCase()!==val):all;
+  renderSuggestions(matches, val);
+}
+function renderSuggestions(matches, val){
+  const box=document.getElementById('suggestions');
+  if(!matches.length){box.style.display='none';return;}
+  suggestIdx=-1;
+  box.innerHTML=matches.map((s,i)=>{
+    const p=paletteFor(s);
+    return'<div class="suggestion-item" data-val="'+esc(s)+'" onmousedown="pickSuggestion(\''+esc(s)+'\')">'
+      +'<span class="tag" style="background:'+p.bg+';color:'+p.text+'">'+esc(s)+'</span></div>';
+  }).join('');
+  box.style.display='block';
+}
+function pickSuggestion(val){
+  document.getElementById('inp-subject').value=val;
+  hideSuggestions();
+}
+function hideSuggestions(){setTimeout(()=>{document.getElementById('suggestions').style.display='none';},150);}
+function onSubjectKey(e){
+  const box=document.getElementById('suggestions');
+  const items=box.querySelectorAll('.suggestion-item');
+  if(e.key==='ArrowDown'){e.preventDefault();suggestIdx=Math.min(suggestIdx+1,items.length-1);items.forEach((el,i)=>el.classList.toggle('active',i===suggestIdx));}
+  else if(e.key==='ArrowUp'){e.preventDefault();suggestIdx=Math.max(suggestIdx-1,0);items.forEach((el,i)=>el.classList.toggle('active',i===suggestIdx));}
+  else if(e.key==='Enter'&&suggestIdx>=0){e.preventDefault();pickSuggestion(items[suggestIdx].dataset.val);}
+  else if(e.key==='Escape'){hideSuggestions();}
+}
+
+function daysLeft(dl){const s=String(dl).replace('Z','').replace('+00:00','');return(new Date(s)-new Date())/86400000;}
+function statusOf(t){
+  if(t.done)return{cls:'badge-done',label:'已完成'};
+  const d=daysLeft(t.deadline);
+  if(d<0)return{cls:'badge-overdue',label:'已逾期'};
+  if(d<1)return{cls:'badge-urgent',label:'今天到期'};
+  if(d<=3)return{cls:'badge-urgent',label:Math.ceil(d)+' 天後'};
+  if(d<=7)return{cls:'badge-soon',label:Math.ceil(d)+' 天後'};
+  return{cls:'badge-ok',label:Math.ceil(d)+' 天後'};
+}
+function pColor(d){if(d<0)return'#E24B4A';if(d<=3)return'#EF9F27';if(d<=7)return'#97C459';return'#5DCAA5';}
+function fmtDate(dl){const s=String(dl).replace('Z','').replace('+00:00','');return new Date(s).toLocaleString('zh-TW',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+async function loadTasks(){
+  const{data,error}=await sb.from('tasks').select('*').eq('user_id',USER_ID).order('deadline',{ascending:true});
+  if(error){showToast('載入失敗：'+error.message);return;}
+  tasks=data||[];render();
+}
+async function addTask(){
+  const name=document.getElementById('inp-name').value.trim();
+  const deadline=document.getElementById('inp-date').value;
+  const tag=document.getElementById('inp-subject').value.trim()||'其他';
+  const note=document.getElementById('inp-note').value.trim();
+  if(!name||!deadline){showToast('請填寫名稱和截止日期');return;}
+  const btn=document.getElementById('add-btn');btn.disabled=true;
+  const{data,error}=await sb.from('tasks').insert([{name,deadline,tag,note,done:false,user_id:USER_ID}]).select().single();
+  btn.disabled=false;
+  if(error){showToast('新增失敗：'+error.message);return;}
+  tasks.push(data);tasks.sort((a,b)=>new Date(a.deadline)-new Date(b.deadline));
+  document.getElementById('inp-name').value='';
+  document.getElementById('inp-note').value='';
+  showToast('已新增！');render();
+}
+async function toggleDone(id){
+  const t=tasks.find(t=>t.id===id);if(!t)return;
+  const{error}=await sb.from('tasks').update({done:!t.done}).eq('id',id);
+  if(error){showToast('更新失敗');return;}
+  t.done=!t.done;render();
+}
+async function delTask(id){
+  if(!confirm('確定刪除這個任務？'))return;
+  const{error}=await sb.from('tasks').delete().eq('id',id);
+  if(error){showToast('刪除失敗');return;}
+  tasks=tasks.filter(t=>t.id!==id);showToast('已刪除');render();
+}
+function tagHTML(subject){
+  const p=paletteFor(subject||'其他');
+  return'<span class="tag" style="background:'+p.bg+';color:'+p.text+'">'+esc(subject||'其他')+'</span>';
+}
+function cardHTML(t){
+  const st=statusOf(t),d=daysLeft(t.deadline);
+  const pct=t.done?100:Math.round(Math.max(5,Math.min(100,((14-d)/14)*100)));
+  const color=t.done?'#B4B2A9':pColor(d);
+  return'<div class="task-card '+(t.done?'done-card':'')+'">'+
+    '<button class="check-btn '+(t.done?'checked':'')+'\" onclick="toggleDone(\''+t.id+'\')">'+(t.done?'✓':'')+'</button>'+
+    '<div class="task-main">'+
+    '<div class="task-name '+(t.done?'strikethrough':'')+'">'+esc(t.name)+'</div>'+
+    '<div class="task-meta">'+tagHTML(t.tag)+
+    '<span>📅 '+fmtDate(t.deadline)+'</span>'+(t.note?'<span>· '+esc(t.note)+'</span>':'')+'</div></div>'+
+    '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'+
+    '<span class="badge '+st.cls+'">'+st.label+'</span>'+
+    '<div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%;background:'+color+'"></div></div></div>'+
+    '<button class="del-btn" onclick="delTask(\''+t.id+'\')" title="刪除">✕</button></div>';
+}
+function render(){
+  const total=tasks.length,urgent=tasks.filter(t=>!t.done&&daysLeft(t.deadline)<=3).length,done=tasks.filter(t=>t.done).length;
+  document.getElementById('s-total').textContent=total;
+  document.getElementById('s-urgent').textContent=urgent;
+  document.getElementById('s-done').textContent=done;
+  const sorted=[...tasks].sort((a,b)=>{if(a.done!==b.done)return a.done?1:-1;return new Date(a.deadline)-new Date(b.deadline);});
+  if(currentView==='list'){
+    const el=document.getElementById('view-list');
+    el.innerHTML=sorted.length?'<div class="task-list">'+sorted.map(cardHTML).join('')+'</div>':'<div class="empty">還沒有任務，新增第一個吧！</div>';
+  }
+  if(currentView==='timeline'){
+    const groups=[
+      {label:'已逾期',color:'#A32D2D',items:[]},{label:'今天',color:'#E24B4A',items:[]},
+      {label:'3 天內',color:'#854F0B',items:[]},{label:'一週內',color:'#3B6D11',items:[]},
+      {label:'更後面',color:'#185FA5',items:[]},{label:'已完成',color:'#5F5E5A',items:[]}
+    ];
+    tasks.forEach(t=>{
+      if(t.done){groups[5].items.push(t);return;}
+      const d=daysLeft(t.deadline);
+      if(d<0)groups[0].items.push(t);else if(d<1)groups[1].items.push(t);
+      else if(d<=3)groups[2].items.push(t);else if(d<=7)groups[3].items.push(t);else groups[4].items.push(t);
+    });
+    groups.forEach(g=>g.items.sort((a,b)=>new Date(a.deadline)-new Date(b.deadline)));
+    const el=document.getElementById('view-timeline');
+    let html='';
+    groups.forEach(g=>{if(!g.items.length)return;html+='<div class="tl-group"><div class="tl-label" style="color:'+g.color+'">'+g.label+'（'+g.items.length+'）</div><div class="task-list">'+g.items.map(cardHTML).join('')+'</div></div>';});
+    el.innerHTML=html||'<div class="empty">還沒有任務</div>';
+  }
+}
+function switchView(v,btn){
+  currentView=v;
+  document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.getElementById('view-list').style.display=v==='list'?'':'none';
+  document.getElementById('view-timeline').style.display=v==='timeline'?'':'none';
+  render();
+}
+const now=new Date();
+document.getElementById('date-label').textContent=now.toLocaleDateString('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+const def=new Date();def.setDate(def.getDate()+3);def.setHours(23,59,0,0);
+document.getElementById('inp-date').value=def.toISOString().slice(0,16);
+function showMyId(){
+  document.getElementById('my-id-display').value = USER_ID || '';
+  document.getElementById('id-modal').style.display='flex';
+}
+function closeMyId(){
+  document.getElementById('id-modal').style.display='none';
+}
+function copyMyId(){
+  const input = document.getElementById('my-id-display');
+  input.select();
+  navigator.clipboard.writeText(input.value).then(()=>{
+    const btn = document.getElementById('copy-btn');
+    btn.textContent='已複製！'; btn.style.background='#3B6D11';
+    setTimeout(()=>{ btn.textContent='複製'; btn.style.background=''; }, 2000);
+  });
+}
+// close modal on backdrop click
+document.getElementById('id-modal').addEventListener('click', function(e){ if(e.target===this) closeMyId(); });
+
+function switchUser(){
+  if(!confirm('確定要切換使用者？\n切換後需要輸入另一組 ID 才能進入。')) return;
+  localStorage.removeItem('todo_user_id');
+  USER_ID = null;
+  tasks = [];
+  // reset id input
+  document.getElementById('id-input').value = '';
+  document.getElementById('id-hint').textContent = '';
+  showLoginScreen();
+}
+
+if(USER_ID){ hideLoginScreen(); loadTasks(); } else { showLoginScreen(); }
+</script>
+</div>
+</body>
+</html>
