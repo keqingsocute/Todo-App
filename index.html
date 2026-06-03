@@ -182,7 +182,11 @@
 <script>
 const SUPABASE_URL='https://nnaiudljfhyuqosedamp.supabase.co';
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5uYWl1ZGxqZmh5dXFvc2VkYW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5ODA3NTYsImV4cCI6MjA5NTU1Njc1Nn0.ew2F2LSfVNWWvLTPNlUUrXkBKiA9VC9WWVl2_mRaf0U';
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
+  global:{
+    headers:{ get 'x-user-id'(){ return localStorage.getItem('todo_user_id')||''; } }
+  }
+});
 
 // Color palettes for tags — assigned by hashing subject name
 const PALETTES=[
